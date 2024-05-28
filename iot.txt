@@ -1,0 +1,72 @@
+Question 1: How to read the temperature using an LM35 sensor and display it on the 
+Serial Monitor? 
+Steps: 
+1. Connect the LM35 sensor to the Arduino: 
+• VCC to 5V 
+• GND to GND 
+• Output to A0 
+2. Upload the code to the Arduino. 
+Code: 
+void setup() { 
+Serial.begin(9600); 
+} 
+
+void loop() { 
+int value = analogRead(A0); 
+f
+ loat temp = value * 0.48828125; // Convert to Celsius 
+Serial.println(temp); 
+delay(1000); 
+} 
+Question 2: How to detect a flame using a flame sensor and sound a buzzer if a 
+f
+ lame is detected? 
+Steps: 
+1. Connect the flame sensor to the Arduino: 
+• VCC to 5V 
+• GND to GND 
+• Output to D2 
+2. Connect the buzzer to D8 and GND. 
+3. Upload the code to the Arduino. 
+Code: 
+void setup() { 
+pinMode(2, INPUT); 
+pinMode(8, OUTPUT); 
+} 
+void loop() { 
+digitalWrite(8, digitalRead(2) == LOW); 
+} 
+Question 3: How to detect the presence of an object using a laser sensor and 
+display the status on the Serial Monitor? 
+Steps: 
+1. Connect the laser sensor to the Arduino: 
+• VCC to 5V 
+• GND to GND 
+• Output to D3 
+2. Upload the code to the Arduino. 
+Code: 
+void setup() { 
+pinMode(3, INPUT); 
+Serial.begin(9600); 
+} 
+void loop() { 
+Serial.println(digitalRead(3) == LOW ? "Object detected" : "No object"); 
+delay(500); 
+} 
+Question 4: How to read the X-axis value from a joystick and control the brightness 
+of an LED? 
+Steps: 
+1. Connect the joystick to the Arduino: 
+• VCC to 5V 
+• GND to GND 
+• VRx to A0 
+2. Connect an LED to D9. 
+3. Upload the code to the Arduino. 
+Code: 
+void setup() { 
+pinMode(9, OUTPUT); 
+} 
+void loop() { 
+int value = analogRead(A0); 
+analogWrite(9, value / 4); 
+} 
